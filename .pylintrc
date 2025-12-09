@@ -1,0 +1,15 @@
+[MASTER]
+# Ensure pylint can import project modules under `src`
+init-hook='import sys; from pathlib import Path; sys.path.insert(0, str(Path(__file__).resolve().parent))'
+
+# Keep line length consistent with project style
+max-line-length=100
+
+# Some disable defaults that are noisy for student projects
+disable=
+    missing-module-docstring,
+    missing-class-docstring
+    ,
+    import-error
+
+generated-members=googleapiclient.*

@@ -1,0 +1,10 @@
+scrapy
+falkordb
+google-api-python-client
+google-auth-oauthlib
+google-auth
+click
+python-dotenv
+mypy
+attrs
+scrapy-playwright

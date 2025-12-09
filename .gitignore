@@ -1,0 +1,11 @@
+# Virtual env
+.venv/
+
+# Secrets
+client_secrets.json
+token.json
+.env
+
+# Python artifacts
+__pycache__/
+*.pyc
