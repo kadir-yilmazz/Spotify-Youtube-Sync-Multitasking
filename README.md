@@ -32,15 +32,15 @@ The project follows a modular, object-oriented architecture:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/yourusername/spotify-youtube-sync.git
-    cd spotify-youtube-sync
+    git clone https://github.com/kadir-yilmazz/Spotify-Youtube-Sync-Multitasking.git
+    cd Spotify-Youtube-Sync-Multitasking
     ```
 
 2.  **Create Virtual Environment:**
 
     **Windows:**
     ```bash
-    python -m venv .venv
+    py -m venv .venv
     .\.venv\Scripts\Activate
     ```
 
@@ -58,7 +58,14 @@ The project follows a modular, object-oriented architecture:
 
 4.  **Start Database:**
     ```bash
-    docker run -p 6379:6379 -it --rm falkordb/falkordb
+    # Run in background (-d)
+    docker run -d -p 6379:6379 --rm --name falkordb falkordb/falkordb
+    ```
+    > **Note:** If you encounter `Bind for 0.0.0.0:6379 failed: port is already allocated`, the database is likely already running. You can skip this step or restart it:
+    ```bash
+    docker stop falkordb
+    docker rm falkordb
+    # Then run the start command again
     ```
 
 5.  **Configuration:**
@@ -77,13 +84,17 @@ Start the CLI application:
 If you activated the project's virtual environment (recommended):
 
 ```bash
-# venv aktifken (en güvenli)
+# With venv active (safest)
 python ./sync_cli.py
 ```
 
-If you don't use a virtual environment or `python` points to an older Python on your system, run explicitly with python3:
+If you don't use a virtual environment or `python` points to an older Python on your system, run explicitly with `py` (Windows) or `python3` (Linux/Mac):
 
 ```bash
+# Windows
+py -u ./sync_cli.py
+
+# Linux/Mac
 python3 -u ./sync_cli.py
 ```
 

@@ -114,7 +114,7 @@ class FalkordbManager:
         query = f"""
         MATCH (s:Song) WHERE ID(s) = {song_id}
         SET s.match_status = 'MATCHED', 
-            s.youtube_id = '{video_id}', 
+            s.youtube_id = '{video_id}',
             s.query_used = '{q}',
             s.matched_at = timestamp()
         """
@@ -124,7 +124,7 @@ class FalkordbManager:
         """Returns a list of all matched YouTube video IDs."""
         if not self.graph:
             return []
-        
+
         query = (
             "MATCH (s:Song) WHERE s.match_status = 'MATCHED' "
             "RETURN s.youtube_id "
